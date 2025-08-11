@@ -12,7 +12,7 @@ export default async function Dashboard({
 }: {
   searchParams?: Promise<DashboardSearchParams>;
 }) {
-  const searchParams = await asyncSearchParams
+  const searchParams = await asyncSearchParams;
   const page = Number(searchParams?.page ?? "1");
   const attribute = searchParams?.attribute;
   const columns = getColumnConfig(
@@ -26,25 +26,21 @@ export default async function Dashboard({
     rowsPerPage: ROWS_PER_PAGE,
     attribute,
   });
+
   const { data: products, total } = await fetchProducts(query);
 
   const processedData = processDataForView(products, columns);
 
   return (
-    <main>
-      <h1 className="text-2xl font-bold mb-4 px-8 pt-8">Dashboard</h1>
-      <Suspense
-        fallback={<div className="p-8 text-center">Loading View...</div>}
-      >
-        <ErrorBoundary fallback={<p>Could not load widget</p>}>
-          <DashboardView
-            products={processedData}
-            total={total}
-            columns={columns}
-            page={page}
-          />
-        </ErrorBoundary>
-      </Suspense>
-    </main>
+    <Suspense fallback={<div className="p-8 text-center">Loading View...</div>}>
+      <ErrorBoundary fallback={<p>Could not load widget</p>}>
+        <DashboardView
+          products={processedData}
+          total={total}
+          columns={columns}
+          page={page}
+        />
+      </ErrorBoundary>
+    </Suspense>
   );
 }
