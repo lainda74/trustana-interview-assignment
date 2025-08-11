@@ -46,6 +46,8 @@ The application primarily uses a pattern of Server Components for data fetching 
 
 2. The current implementation does not handle user authentication or authorization. It is assumed that the API endpoints are either publicly accessible or that security is managed at a higher level (e.g., an API gateway or network infrastructure).
 
+3. I haven't done any significant changes to the layout component. If there is a need to add a sidebar component or common component for routes, we can use the layout component.
+
 
 ## Extra proof for Sentry and E2E testing
 Playwright e2e dashbaord image: (https://drive.google.com/file/d/1jYfGpXeIoJ1cJumqb6EmmAy00-wOu3pa/view?usp=sharing)
