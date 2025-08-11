@@ -19,7 +19,7 @@ The project is built with a focus on code quality, consistency, and reliable dep
 
 *   **Developer Experience (DX)**:
     *   **Husky & commitlint**: Git hooks are used to enforce code quality standards. A `pre-commit` hook runs the linter, and a `commit-msg` hook ensures all commit messages follow the **Conventional Commits** standard for a clean and readable version history.
-    *   **Performance Metrics**: Perforamce Metrics are stored in Sentry.
+    *   **Performance Metrics**: Performance Metrics are stored in Sentry.
     *   **Linting**: EsLint is added to for codebase maintainability and quality.
 
 *   **End-to-End Testing**: The critical user flow of filtering data is covered by an E2E test written with **Playwright**. The test suite is configured to automatically start the development server, making it easy to run and validate application behavior.
