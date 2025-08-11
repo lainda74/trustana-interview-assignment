@@ -1,5 +1,6 @@
 # Stage 1: Builder
-FROM node:20-alpine AS builder
+FROM node:20-bullseye AS builder
+
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
@@ -7,11 +8,11 @@ RUN npm ci
 COPY . .
 
 RUN mkdir -p public
-
 RUN npm run build
 
 # Stage 2: Runner
-FROM node:20-alpine AS runner
+FROM node:20-bullseye AS runner
+
 
 WORKDIR /app
 
