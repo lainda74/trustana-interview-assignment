@@ -48,6 +48,6 @@ The application primarily uses a pattern of Server Components for data fetching 
 
 
 ## Extra proof for Sentry and E2E testing
-![Sentry Dashboard](https://drive.google.com/file/d/1jYfGpXeIoJ1cJumqb6EmmAy00-wOu3pa/view?usp=sharing)
+Sentry Dashboard image: (https://drive.google.com/file/d/1jYfGpXeIoJ1cJumqb6EmmAy00-wOu3pa/view?usp=sharing)
 
-![Playwright e2e dashboard](https://drive.google.com/file/d/1GoW64VRv5Nf4FT1UnHJK2IKNfWvi2niE/view?usp=sharing)
+Playwright e2e dashbaord image: (https://drive.google.com/file/d/1GoW64VRv5Nf4FT1UnHJK2IKNfWvi2niE/view?usp=sharing)
