@@ -1,6 +1,6 @@
 import { ProductQuery } from "@/app/types/query-engine/product";
 import { Product, ProductAttribute, ProductListResponse, RawProduct } from "@/app/types/product";
-import * as Sentry from "@sentry/nextjs";
+import { request } from "@/app/utils/request";
 
 function sanitizeProduct(raw: RawProduct): Product {
   return {
@@ -15,25 +15,14 @@ function sanitizeProduct(raw: RawProduct): Product {
 export async function fetchProducts(query?: ProductQuery): Promise<ProductListResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
   const url = `${baseUrl}/api/products`;
-  const res = await fetch(url, {
+
+  const result = await request<{ data: RawProduct[]; total?: number }>(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: query ? JSON.stringify(query) : null,
+    body: query ? JSON.stringify(query) : undefined,
   });
 
-  if (!res.ok) {
-    Sentry.captureException(new Error("Failed to fetch products"));
-    throw new Error("Failed to fetch products");
-  }
-
-  const result = await res.json();
-
-  const sanitizedData = (result.data as RawProduct[]).map(sanitizeProduct);
-
   return {
-    data: sanitizedData,
+    data: result.data.map(sanitizeProduct),
     total: result.total || 0,
   };
 }
