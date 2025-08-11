@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Dependencies
+node_modules
+
+# Build artifacts
+.next
+dist
+build
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Test reports and artifacts
+coverage
+test-results
+playwright-report
+.cache
+
+# Husky
+.husky
